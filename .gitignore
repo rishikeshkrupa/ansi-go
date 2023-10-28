@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+# Helper JS used to create go functions
+helper.js
