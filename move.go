@@ -2,8 +2,8 @@ package ansi
 
 import "fmt"
 
+// moves cursor to home position (0, 0)
 func HomePosition() {
-	//moves cursor to home position (0, 0)
 	Csi("H")
 }
 

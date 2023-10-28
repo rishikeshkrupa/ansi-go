@@ -7,17 +7,28 @@ package ansi
 
 import "fmt"
 
+/* Note : Tried using sequences other than ESC didn't work (\x9B) in the terminals
+ * I've developed this with hence switching to ESC representation(\ESC [) */
+
 const (
 	ESC = "\x1b"
-	CSI = "\x9B" //Control Sequence Introducer:  ESC [
-	DCS = "\x90" //Device Control String:  ESC P
-	OSC = "\x9D" //Operating System Command: ESC ]
+	CSI = ESC + "["  //Control Sequence Introducer: "\x9B"
+	DCS = ESC + " P" //Device Control String:  "\x90"
+	OSC = ESC + "]"  //Operating System Command: "\x9D"
 )
+
+func Esc(code string) {
+	fmt.Printf("%s%s", ESC, code)
+}
 
 func Csi(code string) {
 	fmt.Printf("%s%s", CSI, code)
 }
 
-func Esc(code string) {
-	fmt.Printf("%s%s", ESC, code)
+func Dcs(code string) {
+	fmt.Printf("%s%s", DCS, code)
+}
+
+func Osc(code string) {
+	fmt.Printf("%s%s", OSC, code)
 }
